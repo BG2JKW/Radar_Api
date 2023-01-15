@@ -5,5 +5,5 @@
 </div>
 <div>
 <h3>Equipe-3</h3>
-<img src="/#ImgReadMe/LogoCapa.png">
+
 </div>
