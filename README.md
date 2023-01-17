@@ -5,5 +5,8 @@
 </div>
 <div>
 <h3>Equipe-3</h3>
-<img src="/#ImgReadMe/LogoCapa.png">
+</div>
+<div>
+<p>Comando para rodar a api</p>
+<p>dotnet watch run Radar_Api.csproj</p>
 </div>
