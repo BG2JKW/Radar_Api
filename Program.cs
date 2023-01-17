@@ -1,8 +1,15 @@
+using api.Repositorios.Entity;
+using Radar_Api.Models;
+using Radar_Api.Repositories;
+using Radar_Api.Repositorios.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<IServico<Cliente>, ClienteRepository>();
+builder.Services.AddScoped<IServico<Loja>, LojaRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
