@@ -35,11 +35,11 @@ CREATE TABLE IF NOT EXISTS `api_radar`.`Pedidos` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `valor_total` FLOAT NULL,
   `data` DATETIME NOT NULL,
-  `Clientes_id` INT NOT NULL,
+  `Cliente_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_Pedidos_Clientes1_idx` (`Clientes_id` ASC) VISIBLE,
+  INDEX `fk_Pedidos_Clientes1_idx` (`Cliente_id` ASC) VISIBLE,
   CONSTRAINT `fk_Pedidos_Clientes1`
-    FOREIGN KEY (`Clientes_id`)
+    FOREIGN KEY (`Cliente_id`)
     REFERENCES `api_radar`.`Clientes` (`id`)
     ON DELETE RESTRICT
     ON UPDATE CASCADE)
@@ -49,18 +49,18 @@ CREATE TABLE IF NOT EXISTS `api_radar`.`PedidosProdutos` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `valor` FLOAT NULL,
   `quantidade` INT NULL,
-  `Produtos_id` INT NOT NULL,
-  `Pedidos_id` INT NOT NULL,
+  `Produto_id` INT NOT NULL,
+  `Pedido_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_PedidosProdutos_Produtos_idx` (`Produtos_id` ASC) VISIBLE,
-  INDEX `fk_PedidosProdutos_Pedidos1_idx` (`Pedidos_id` ASC) VISIBLE,
+  INDEX `fk_PedidosProdutos_Produtos_idx` (`Produto_id` ASC) VISIBLE,
+  INDEX `fk_PedidosProdutos_Pedidos1_idx` (`Pedido_id` ASC) VISIBLE,
   CONSTRAINT `fk_PedidosProdutos_Produtos`
-    FOREIGN KEY (`Produtos_id`)
+    FOREIGN KEY (`Produto_id`)
     REFERENCES `api_radar`.`Produtos` (`id`)
     ON DELETE RESTRICT
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_PedidosProdutos_Pedidos1`
-    FOREIGN KEY (`Pedidos_id`)
+    FOREIGN KEY (`Pedido_id`)
     REFERENCES `api_radar`.`Pedidos` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -82,15 +82,15 @@ CREATE TABLE IF NOT EXISTS `api_radar`.`PosicoesProdutos` (
   `Produtos_id` INT NOT NULL,
   `Campanhas_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_PosicoesProdutos_Produtos1_idx` (`Produtos_id` ASC) VISIBLE,
-  INDEX `fk_PosicoesProdutos_Campanhas1_idx` (`Campanhas_id` ASC) VISIBLE,
+  INDEX `fk_PosicoesProdutos_Produtos1_idx` (`Produto_id` ASC) VISIBLE,
+  INDEX `fk_PosicoesProdutos_Campanhas1_idx` (`Campanha_id` ASC) VISIBLE,
   CONSTRAINT `fk_PosicoesProdutos_Produtos1`
-    FOREIGN KEY (`Produtos_id`)
+    FOREIGN KEY (`Produto_id`)
     REFERENCES `api_radar`.`Produtos` (`id`)
     ON DELETE RESTRICT
     ON UPDATE CASCADE,
   CONSTRAINT `fk_PosicoesProdutos_Campanhas1`
-    FOREIGN KEY (`Campanhas_id`)
+    FOREIGN KEY (`Campanha_id`)
     REFERENCES `api_radar`.`Campanhas` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
