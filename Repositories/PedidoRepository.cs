@@ -16,7 +16,22 @@ public class PedidoRepository : IServico<Pedido>
 
     public async Task<List<Pedido>> TodosAsync()
     {
-        return await contexto.Pedidos.ToListAsync();
+        var pedidoSql = contexto.Pedidos.Join(
+            contexto.Clientes,
+            ped => ped.Cliente_Id,
+            cli => cli.Id,
+            (ped, cli) => new
+            {
+                PedidoId = ped.Id,
+                Valor_Total = ped.Valor_Total,
+                Data = ped.Data,
+                ClienteNome = cli.Nome,
+            }
+        ).ToQueryString();
+
+        var pedidoContext = contexto.Pedidos.Include(p => p.Cliente);
+
+        return await pedidoContext.ToListAsync();
     }
 
     public async Task IncluirAsync(Pedido pedido)
