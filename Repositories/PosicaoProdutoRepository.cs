@@ -16,7 +16,22 @@ public class PosicaoProdutoRepository : IServico<PosicaoProduto>
 
     public async Task<List<PosicaoProduto>> TodosAsync()
     {
-        return await contexto.PosicoesProdutos.ToListAsync();
+        var posicoes = await Task.FromResult
+        (
+            from pos in contexto.PosicoesProdutos
+            join prod in contexto.Produtos on pos.Produto_id equals prod.Id
+            join camp in contexto.Campanhas on pos.Campanha_Id equals camp.Id
+            select new PosicaoProduto
+            {
+                Id = pos.Id,
+                posicao_X = pos.posicao_X,
+                posicao_Y = pos.posicao_Y,
+                Produto_id = prod.Id,
+                Campanha_Id = camp.Id,
+            }
+        );
+
+        return await posicoes.ToListAsync();
     }
 
     public async Task IncluirAsync(PosicaoProduto posicaoProduto)
