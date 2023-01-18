@@ -16,22 +16,20 @@ public class PedidoRepository : IServico<Pedido>
 
     public async Task<List<Pedido>> TodosAsync()
     {
-        var pedidoSql = contexto.Pedidos.Join(
-            contexto.Clientes,
-            ped => ped.Cliente_Id,
-            cli => cli.Id,
-            (ped, cli) => new
+        var pedidos = await Task.FromResult
+        (
+            from ped in contexto.Pedidos
+            join cli in contexto.Clientes on ped.Cliente_Id equals cli.Id
+            select new Pedido
             {
-                PedidoId = ped.Id,
+                Id = ped.Id,
                 Valor_Total = ped.Valor_Total,
                 Data = ped.Data,
-                ClienteNome = cli.Nome,
+                Cliente_Id = cli.Id,
             }
-        ).ToQueryString();
+        );
 
-        var pedidoContext = contexto.Pedidos.Include(p => p.Cliente);
-
-        return await pedidoContext.ToListAsync();
+        return await pedidos.ToListAsync();
     }
 
     public async Task IncluirAsync(Pedido pedido)
