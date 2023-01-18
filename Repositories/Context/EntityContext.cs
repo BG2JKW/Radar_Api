@@ -18,5 +18,7 @@ namespace Radar_Api.Repositories.Context
         public DbSet<Produto> Produtos { get; set; } = default!;
         public DbSet<Pedido> Pedidos { get; set; } = default!;
         public DbSet<PedidoProduto> PedidosProdutos { get; set; } = default!;
+        public DbSet<PosicaoProduto> PosicoesProdutos { get; set; } = default!;
+        public DbSet<Campanha> Campanhas { get; set; } = default!;
     }
 }

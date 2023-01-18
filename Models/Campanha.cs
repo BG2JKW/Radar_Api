@@ -9,5 +9,5 @@ public record Campanha
     public string? Nome {get; set;}
     public string? Descricao {get; set;}
     public DateTime Data {get; set;}
-    public string? UrlFotoPrateleira {get; set;}
+    public string? Url_Foto_Prateleira {get; set;}
 }

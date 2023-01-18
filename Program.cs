@@ -13,6 +13,8 @@ builder.Services.AddScoped<IServico<Loja>, LojaRepository>();
 builder.Services.AddScoped<IServico<Produto>, ProdutoRepository>();
 builder.Services.AddScoped<IServico<Pedido>, PedidoRepository>();
 builder.Services.AddScoped<IServico<PedidoProduto>, PedidoProdutoRepository>();
+builder.Services.AddScoped<IServico<PosicaoProduto>, PosicaoProdutoRepository>();
+builder.Services.AddScoped<IServico<Campanha>, CampanhaRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

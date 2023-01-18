@@ -59,7 +59,7 @@ public class LojasController : ControllerBase
         {
             return StatusCode(404, new
             {
-                Mensagem = "A loja informado n„o existe"
+                Mensagem = "A loja informada n√£o existe"
             });
         }
 

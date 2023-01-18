@@ -4,7 +4,7 @@ using Radar_Api.Repositorios.Interfaces;
 
 namespace api.Controllers;
 
-[Route("Produtos")]
+[Route("produtos")]
 public class ProdutosController : ControllerBase
 {
     private IServico<Produto> _servico;

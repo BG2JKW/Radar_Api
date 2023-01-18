@@ -6,7 +6,8 @@ namespace Radar_Api.Models;
 public record PosicaoProduto
 {
     public int Id {get; set;} = default!;
-    public float posicaoX {get; set;} = default!;
-    public float posicaoY {get; set;} = default!;
+    public float posicao_X {get; set;} = default!;
+    public float posicao_Y {get; set;} = default!;
+    public int Produto_id {get; set;} = default!;
     public int Campanha_Id {get; set;} = default!;
 }
