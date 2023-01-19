@@ -43,7 +43,7 @@ public class PedidosProdutosController : ControllerBase
         {
             return StatusCode(400, new
             {
-                Mensagem = "O Id  precisa bater com o id da URL"
+                Mensagem = "O Id precisa bater com o id da URL"
             });
         }
 

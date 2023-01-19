@@ -7,7 +7,7 @@ USE `api_radar` ;
 
 CREATE TABLE IF NOT EXISTS `api_radar`.`Produtos` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NOT NULL,
+  `nome` VARCHAR(155) NOT NULL,
   `descricao` LONGTEXT NULL,
   `valor` FLOAT NULL,
   `qtd_estoque` INT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `api_radar`.`Clientes` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `telefone` VARCHAR(45) NULL,
-  `email` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(55) NOT NULL,
   `cpf` VARCHAR(16) NOT NULL,
   `cep` VARCHAR(45) NULL,
   `logradouro` VARCHAR(45) NULL,
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `api_radar`.`Clientes` (
   `bairro` VARCHAR(45) NULL,
   `cidade` VARCHAR(45) NULL,
   `estado` VARCHAR(45) NULL,
-  `complemento` VARCHAR(245) NULL,
+  `complemento` VARCHAR(255) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `cpf_UNIQUE` (`cpf` ASC) VISIBLE)
 ENGINE = InnoDB;
@@ -68,7 +68,7 @@ ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `api_radar`.`Campanhas` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL,
+  `nome` VARCHAR(55) NULL,
   `descricao` LONGTEXT NULL,
   `data` DATETIME NULL,
   `url_foto_prateleira` LONGTEXT NULL,
@@ -98,15 +98,15 @@ ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `api_radar`.`Lojas` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL,
-  `observacao` VARCHAR(45) NULL,
+  `nome` VARCHAR(55) NULL,
+  `observacao` VARCHAR(155) NULL,
   `cep` VARCHAR(45) NULL,
   `logradouro` VARCHAR(45) NULL,
   `numero` VARCHAR(8) NULL,
   `bairro` VARCHAR(45) NULL,
   `cidade` VARCHAR(45) NULL,
   `estado` VARCHAR(45) NULL,
-  `complemento` VARCHAR(45) NULL,
+  `complemento` VARCHAR(255) NULL,
   `latitude` FLOAT NULL,
   `longitude` FLOAT NULL,
   PRIMARY KEY (`id`))
