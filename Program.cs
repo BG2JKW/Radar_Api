@@ -28,6 +28,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+//RESOLVENDO PROBLEMA DE CROSS DOMAIN
 app.UseCors(x => x
     .AllowAnyOrigin()
     .AllowAnyMethod()
