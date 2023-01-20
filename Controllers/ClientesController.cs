@@ -28,8 +28,17 @@ public class ClientesController : ControllerBase
     [Authorize(Roles = "adm,editor")]
     public async Task<IActionResult> Details([FromRoute] int id)
     {
-        var cliente = (await _servico.TodosAsync()).Find(c => c.Id == id);
+        var cliente = await _servico.BuscaId(id);
+        if (cliente is null) return StatusCode(404);
+        return StatusCode(200, cliente);
+    }
 
+    [HttpGet("/clientes/cpf/{cpf}")]
+    [Authorize(Roles = "adm,editor")]
+    public async Task<IActionResult> DetailsCpf([FromRoute] string cpf)
+    {
+        var cliente = (await _servico.TodosAsync()).Find(c => c.Cpf == cpf);
+        if (cliente is null) return StatusCode(404);
         return StatusCode(200, cliente);
     }
 

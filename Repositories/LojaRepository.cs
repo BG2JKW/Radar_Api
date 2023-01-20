@@ -18,6 +18,13 @@ namespace Radar_Api.Repositories
             return await contexto.Lojas.ToListAsync();
         }
 
+        public async Task<Loja> BuscaId(int id)
+        {
+            var obj = await contexto.Lojas.FindAsync(id);
+            if (obj is null) throw new Exception("Loja não encontrada.");
+            return obj;
+        }
+
         public async Task IncluirAsync(Loja loja)
         {
             contexto.Lojas.Add(loja);

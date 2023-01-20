@@ -19,6 +19,13 @@ public class ProdutoRepository : IServico<Produto>
         return await contexto.Produtos.ToListAsync();
     }
 
+    public async Task<Produto> BuscaId(int id)
+    {
+        var obj = await contexto.Produtos.FindAsync(id);
+        if (obj is null) throw new Exception("Produto não encontrado.");
+        return obj;
+    }
+
     public async Task IncluirAsync(Produto produto)
     {
         contexto.Produtos.Add(produto);
