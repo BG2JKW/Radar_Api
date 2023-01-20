@@ -1,6 +1,6 @@
 ﻿using Radar_Api.Models;
 
-namespace Radar_Api.Repositorios.Interfaces;
+namespace Radar_Api.Interfaces;
 
 public interface IServico<T>
 {

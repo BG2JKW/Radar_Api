@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Radar_Api.Models;
 using Radar_Api.Repositories.Context;
-using Radar_Api.Repositorios.Interfaces;
+using Radar_Api.Interfaces;
 
 namespace api.Repositorios.Entity;
 
