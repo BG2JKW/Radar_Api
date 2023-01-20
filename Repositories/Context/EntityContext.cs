@@ -9,7 +9,7 @@ namespace Radar_Api.Repositories.Context
         {
             var conexao = Environment.GetEnvironmentVariable("DATABASE_URL_RADAR");
             //if (conexao is null) conexao = "Server=localhost;Database=api_radar;Uid=root;Pwd=root;";
-            if (conexao is null) conexao = "Server=localhost;Database=api_radar;Uid=root;Pwd='';";
+            if (conexao is null) conexao = "Server=localhost;Database=api_radar;Uid=root;Pwd='root';";
             optionsBuilder.UseMySql(conexao, ServerVersion.AutoDetect(conexao));
         }
 

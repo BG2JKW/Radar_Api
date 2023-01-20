@@ -34,6 +34,13 @@ public class PedidoProdutoRepository : IServico<PedidoProduto>
         return await pedidosProdutos.ToListAsync();
     }
 
+    public async Task<PedidoProduto> BuscaId(int id)
+    {
+        var obj = await contexto.PedidosProdutos.FindAsync(id);
+        if (obj is null) throw new Exception("PedidoProduto não encontrado.");
+        return obj;
+    }
+
     public async Task IncluirAsync(PedidoProduto pedidoProduto)
     {
         contexto.PedidosProdutos.Add(pedidoProduto);

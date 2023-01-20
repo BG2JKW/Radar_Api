@@ -19,6 +19,13 @@ public class CampanhaRepository : IServico<Campanha>
         return await contexto.Campanhas.ToListAsync();
     }
 
+    public async Task<Campanha> BuscaId(int id)
+    {
+        var obj = await contexto.Campanhas.FindAsync(id);
+        if (obj is null) throw new Exception("Campanha não encontrada.");
+        return obj;
+    }
+
     public async Task IncluirAsync(Campanha campanha)
     {
         contexto.Campanhas.Add(campanha);

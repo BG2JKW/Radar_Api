@@ -18,6 +18,13 @@ public class CadastroRepository : IServicoCadastro<Cadastro>
         return await contexto.Cadastros.ToListAsync();
     }
 
+    public async Task<Cadastro> BuscaId(int id)
+    {
+        var obj = await contexto.Cadastros.FindAsync(id);
+        if (obj is null) throw new Exception("Cadastro não encontrado.");
+        return obj;
+    }
+
     public async Task<Cadastro?> Login(string email, string senha)
     {
         return await contexto.Cadastros.Where(c => c.Email == email && c.Senha == senha).FirstOrDefaultAsync();

@@ -18,8 +18,15 @@ public class ClienteRepository : IServico<Cliente>
         return await contexto.Clientes.ToListAsync();
     }
 
+    public async Task<Cliente> BuscaId(int id)
+    {
+        var obj = await contexto.Clientes.FindAsync(id);
+        return obj;
+    }
+
     public async Task IncluirAsync(Cliente cliente)
     {
+        if (cliente is null) throw new Exception("Cliente não encontrado.");
         contexto.Clientes.Add(cliente);
         await contexto.SaveChangesAsync();
     }
@@ -28,6 +35,8 @@ public class ClienteRepository : IServico<Cliente>
     {
         contexto.Entry(cliente).State = EntityState.Modified;
         await contexto.SaveChangesAsync();
+
+        if (cliente is null) throw new Exception("Cliente não encontrado.");
 
         return cliente;
     }
