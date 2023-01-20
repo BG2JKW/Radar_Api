@@ -7,6 +7,7 @@ namespace api.Controllers;
 
 [Route("pedidosProdutos")]
 [ApiController]
+[AllowAnonymous]
 public class PedidosProdutosController : ControllerBase
 {
     private IServico<PedidoProduto> _servico;
