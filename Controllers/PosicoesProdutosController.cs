@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Radar_Api.Models;
-using Radar_Api.Repositorios.Interfaces;
+using Radar_Api.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace api.Controllers;
 
 [Route("posicoesProdutos")]
+[ApiController]
 public class PosicoesProdutosController : ControllerBase
 {
    private IServico<PosicaoProduto> _servico; 
@@ -15,6 +17,7 @@ public class PosicoesProdutosController : ControllerBase
    }
 
    [HttpGet("")]
+   [Authorize(Roles = "adm,editor")]
     public async Task<IActionResult> Index()
     {
         var posicoesProdutos = await _servico.TodosAsync();
@@ -22,6 +25,7 @@ public class PosicoesProdutosController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "adm,editor")]
     public async Task<IActionResult> Details([FromRoute] int id)
     {
         var posicaoProduto = (await _servico.TodosAsync()).Find(c => c.Id == id);
@@ -30,6 +34,7 @@ public class PosicoesProdutosController : ControllerBase
     }
 
     [HttpPost("")]
+    [Authorize(Roles = "adm,editor")]
     public async Task<IActionResult> Create([FromBody] PosicaoProduto posicaoProduto)
     {
         await _servico.IncluirAsync(posicaoProduto);
@@ -37,6 +42,7 @@ public class PosicoesProdutosController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [Authorize(Roles = "adm")]
     public async Task<IActionResult> Update([FromRoute] int id, [FromBody] PosicaoProduto posicaoProduto)
     {
         if (id != posicaoProduto.Id)
@@ -53,6 +59,7 @@ public class PosicoesProdutosController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "adm")]
     public async Task<IActionResult> Delete([FromRoute] int id)
     {
         var posicaoProdutoDb = (await _servico.TodosAsync()).Find(c => c.Id == id);

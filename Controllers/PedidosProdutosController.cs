@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Radar_Api.Models;
-using Radar_Api.Repositorios.Interfaces;
+using Radar_Api.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace api.Controllers;
 
 [Route("pedidosProdutos")]
+[ApiController]
 public class PedidosProdutosController : ControllerBase
 {
     private IServico<PedidoProduto> _servico;
@@ -15,6 +17,7 @@ public class PedidosProdutosController : ControllerBase
     }
 
     [HttpGet("")]
+    [Authorize(Roles = "adm,editor")]
     public async Task<IActionResult> Index()
     {
         var pedidosProdutos = await _servico.TodosAsync();
@@ -22,6 +25,7 @@ public class PedidosProdutosController : ControllerBase
     }
     
     [HttpGet("{id}")]
+    [Authorize(Roles = "adm,editor")]
     public async Task<IActionResult> Details([FromRoute] int id)
     {
         var pedidoProduto = (await _servico.TodosAsync()).Find(c => c.Id == id);
@@ -30,6 +34,7 @@ public class PedidosProdutosController : ControllerBase
     }
 
     [HttpPost("")]
+    [Authorize(Roles = "adm,editor")]
     public async Task<IActionResult> Create([FromBody] PedidoProduto pedidoProduto)
     {
         await _servico.IncluirAsync(pedidoProduto);
@@ -37,6 +42,7 @@ public class PedidosProdutosController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [Authorize(Roles = "adm")]
     public async Task<IActionResult> Update([FromRoute] int id, [FromBody] PedidoProduto pedidoProduto)
     {
         if (id != pedidoProduto.Id)
@@ -53,6 +59,7 @@ public class PedidosProdutosController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "adm")]
     public async Task<IActionResult> Delete([FromRoute] int id)
     {
         var pedidoProdutoDb = (await _servico.TodosAsync()).Find(c => c.Id == id);

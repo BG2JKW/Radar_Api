@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Radar_Api.Models;
-using Radar_Api.Repositorios.Interfaces;
+using Radar_Api.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace api.Controllers;
 
 [Route("lojas")]
+[ApiController]
 public class LojasController : ControllerBase
 {
     private IServico<Loja> _servico;
@@ -14,6 +16,8 @@ public class LojasController : ControllerBase
     }
 
     [HttpGet("")]
+    [Authorize(Roles = "adm,editor")]
+    
     public async Task<IActionResult> Index()
     {
         var lojas = await _servico.TodosAsync();
@@ -21,6 +25,7 @@ public class LojasController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "adm,editor")]
     public async Task<IActionResult> Details([FromRoute] int id)
     {
         var loja = (await _servico.TodosAsync()).Find(l => l.Id == id);
@@ -29,6 +34,7 @@ public class LojasController : ControllerBase
     }
 
     [HttpPost("")]
+    [Authorize(Roles = "adm,editor")]
     public async Task<IActionResult> Create([FromBody] Loja loja)
     {
         await _servico.IncluirAsync(loja);
@@ -36,6 +42,7 @@ public class LojasController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [Authorize(Roles = "adm")]
     public async Task<IActionResult> Update([FromRoute] int id, [FromBody] Loja loja)
     {
         if (id != loja.Id)
@@ -52,6 +59,7 @@ public class LojasController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "adm")]
     public async Task<IActionResult> Delete([FromRoute] int id)
     {
         var lojaDb = (await _servico.TodosAsync()).Find(l => l.Id == id);

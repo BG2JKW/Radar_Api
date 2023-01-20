@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jaziel\\source\\repos\\Radar_Api\\Radar_Api.csproj": {}
+    "C:\\Users\\usuario\\Desktop\\Programas Miotto\\Radar_Api\\Radar_Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jaziel\\source\\repos\\Radar_Api\\Radar_Api.csproj": {
+    "C:\\Users\\usuario\\Desktop\\Programas Miotto\\Radar_Api\\Radar_Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jaziel\\source\\repos\\Radar_Api\\Radar_Api.csproj",
+        "projectUniqueName": "C:\\Users\\usuario\\Desktop\\Programas Miotto\\Radar_Api\\Radar_Api.csproj",
         "projectName": "Radar_Api",
-        "projectPath": "C:\\Users\\Jaziel\\source\\repos\\Radar_Api\\Radar_Api.csproj",
-        "packagesPath": "C:\\Users\\Jaziel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jaziel\\source\\repos\\Radar_Api\\obj\\",
+        "projectPath": "C:\\Users\\usuario\\Desktop\\Programas Miotto\\Radar_Api\\Radar_Api.csproj",
+        "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\usuario\\Desktop\\Programas Miotto\\Radar_Api\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Jaziel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,9 +38,17 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.0.2, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -80,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

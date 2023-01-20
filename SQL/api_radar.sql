@@ -5,6 +5,15 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 CREATE SCHEMA IF NOT EXISTS `api_radar` DEFAULT CHARACTER SET utf8 ;
 USE `api_radar` ;
 
+CREATE TABLE IF NOT EXISTS `api_radar`.`Cadastros` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(155) NOT NULL,
+   `email` VARCHAR(155) NOT NULL,
+  `senha` VARCHAR(155) NULL,
+  `permissao` VARCHAR(20) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
 CREATE TABLE IF NOT EXISTS `api_radar`.`Produtos` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(155) NOT NULL,
@@ -13,6 +22,7 @@ CREATE TABLE IF NOT EXISTS `api_radar`.`Produtos` (
   `qtd_estoque` INT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
+
 
 CREATE TABLE IF NOT EXISTS `api_radar`.`Clientes` (
   `id` INT NOT NULL AUTO_INCREMENT,
