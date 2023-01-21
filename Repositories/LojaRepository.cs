@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Radar_Api.Models;
 using Radar_Api.Repositories.Context;
-using Radar_Api.Repositorios.Interfaces;
+using Radar_Api.Interfaces;
 
 namespace Radar_Api.Repositories
 {
@@ -16,6 +16,13 @@ namespace Radar_Api.Repositories
         public async Task<List<Loja>> TodosAsync()
         {
             return await contexto.Lojas.ToListAsync();
+        }
+
+        public async Task<Loja> BuscaId(int id)
+        {
+            var obj = await contexto.Lojas.FindAsync(id);
+            if (obj is null) throw new Exception("Loja não encontrada.");
+            return obj;
         }
 
         public async Task IncluirAsync(Loja loja)

@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Radar_Api.Models;
-using Radar_Api.Repositorios.Interfaces;
+using Radar_Api.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace api.Controllers;
 
 [Route("pedidosProdutos")]
+[ApiController]
 public class PedidosProdutosController : ControllerBase
 {
     private IServico<PedidoProduto> _servico;
@@ -15,6 +17,7 @@ public class PedidosProdutosController : ControllerBase
     }
 
     [HttpGet("")]
+    [Authorize(Roles = "adm,editor")]
     public async Task<IActionResult> Index()
     {
         var pedidosProdutos = await _servico.TodosAsync();
@@ -22,14 +25,34 @@ public class PedidosProdutosController : ControllerBase
     }
     
     [HttpGet("{id}")]
+    [Authorize(Roles = "adm,editor")]
     public async Task<IActionResult> Details([FromRoute] int id)
     {
         var pedidoProduto = (await _servico.TodosAsync()).Find(c => c.Id == id);
 
         return StatusCode(200, pedidoProduto);
     }
+    
+    [HttpGet("/pedidosProdutos/pedidoId/{id}")]
+    [Authorize(Roles = "adm,editor")]
+    public async Task<IActionResult> DetailsIdPedido([FromRoute] int id)
+    {
+        var pedidosProdutosDoPedido = new List<PedidoProduto>();
+        List<PedidoProduto> todosPedidosProduto = await _servico.TodosAsync();
+        for(int i = 0; i<todosPedidosProduto.Count; i++)
+        {
+            var pedidoProdutoBD = todosPedidosProduto[i];
+            if (pedidoProdutoBD.Pedido_Id.ToString() == id.ToString())
+            {
+                pedidosProdutosDoPedido.Add(pedidoProdutoBD);
+            }
+        }
+        if (pedidosProdutosDoPedido.Count == 0) return NotFound();
+        return StatusCode(200, pedidosProdutosDoPedido);
+    }
 
     [HttpPost("")]
+    [Authorize(Roles = "adm,editor")]
     public async Task<IActionResult> Create([FromBody] PedidoProduto pedidoProduto)
     {
         await _servico.IncluirAsync(pedidoProduto);
@@ -37,6 +60,7 @@ public class PedidosProdutosController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [Authorize(Roles = "adm")]
     public async Task<IActionResult> Update([FromRoute] int id, [FromBody] PedidoProduto pedidoProduto)
     {
         if (id != pedidoProduto.Id)
@@ -53,6 +77,7 @@ public class PedidosProdutosController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "adm")]
     public async Task<IActionResult> Delete([FromRoute] int id)
     {
         var pedidoProdutoDb = (await _servico.TodosAsync()).Find(c => c.Id == id);

@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Radar_Api.Models;
 using Radar_Api.Repositories.Context;
-using Radar_Api.Repositorios.Interfaces;
+using Radar_Api.Interfaces;
 
 namespace api.Repositorios.Entity;
 
@@ -30,6 +30,13 @@ public class PedidoRepository : IServico<Pedido>
         );
 
         return await pedidos.ToListAsync();
+    }
+
+    public async Task<Pedido> BuscaId(int id)
+    {
+        var obj = await contexto.Pedidos.FindAsync(id);
+        if (obj is null) throw new Exception("Pedido não encontrado.");
+        return obj;
     }
 
     public async Task IncluirAsync(Pedido pedido)

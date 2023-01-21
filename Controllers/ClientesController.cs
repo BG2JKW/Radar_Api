@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Radar_Api.Models;
-using Radar_Api.Repositorios.Interfaces;
+using Radar_Api.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace api.Controllers;
 
 [Route("clientes")]
+[ApiController]
 public class ClientesController : ControllerBase
 {
     private IServico<Cliente> _servico;
@@ -14,6 +16,7 @@ public class ClientesController : ControllerBase
     }
 
     [HttpGet("")]
+    [Authorize(Roles = "adm,editor")]
     public async Task<IActionResult> Index()
     {
         var clientes = await _servico.TodosAsync();
@@ -21,14 +24,25 @@ public class ClientesController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "adm,editor")]
     public async Task<IActionResult> Details([FromRoute] int id)
     {
-        var cliente = (await _servico.TodosAsync()).Find(c => c.Id == id);
+        var cliente = await _servico.BuscaId(id);
+        if (cliente is null) return StatusCode(404);
+        return StatusCode(200, cliente);
+    }
 
+    [HttpGet("/clientes/cpf/{cpf}")]
+    [Authorize(Roles = "adm,editor")]
+    public async Task<IActionResult> DetailsCpf([FromRoute] string cpf)
+    {
+        var cliente = (await _servico.TodosAsync()).Find(c => c.Cpf == cpf);
+        if (cliente is null) return StatusCode(404);
         return StatusCode(200, cliente);
     }
 
     [HttpPost("")]
+    [Authorize(Roles = "adm,editor")]
     public async Task<IActionResult> Create([FromBody] Cliente cliente)
     {
         await _servico.IncluirAsync(cliente);
@@ -36,6 +50,7 @@ public class ClientesController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [Authorize(Roles = "adm")]
     public async Task<IActionResult> Update([FromRoute] int id, [FromBody] Cliente cliente)
     {
         if (id != cliente.Id)
@@ -52,6 +67,7 @@ public class ClientesController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "adm")]
     public async Task<IActionResult> Delete([FromRoute] int id)
     {
         var clienteDb = (await _servico.TodosAsync()).Find(c => c.Id == id);

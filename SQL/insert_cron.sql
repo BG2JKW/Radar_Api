@@ -54,3 +54,14 @@ Remove 88% da placa em apenas 1 escovação; Cerdas macias com infusão de carv�
 INSERT INTO produtos(nome,descricao,valor,qtd_estoque)
 VALUES ("DORFLEX DIPIRONA SÓDICA 300MG + CITRATO DE ORFENADRINA 35MG + CAFEÍNA 50MG 50 COMPRIMIDOS", "Dorflex age na dor e relaxa a tensão muscular causada pela má postura e movimentos repetitivos;  
 Uma potente combinação de analgésico e relaxante muscular disponível em versões de 10, 24, 36, 50 comprimidos e gotas.", 32.96, 494);
+
+-- ----------------------------
+-- Cadastro
+-- -----------------------------
+INSERT INTO cadastros(nome,senha,email, permissao) 
+VALUES ("Jasmine", "123456", "jasmine@email.com", "adm");
+
+INSERT INTO cadastros(nome,senha,email, permissao) 
+VALUES ("Gustavo", "789456", "gustavo@email.com", "editor");
+
+select * from cadastros

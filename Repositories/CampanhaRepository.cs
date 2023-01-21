@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Radar_Api.Models;
 using Radar_Api.Repositories.Context;
-using Radar_Api.Repositorios.Interfaces;
+using Radar_Api.Interfaces;
 
 namespace api.Repositorios.Entity;
 
@@ -17,6 +17,13 @@ public class CampanhaRepository : IServico<Campanha>
     public async Task<List<Campanha>> TodosAsync()
     {
         return await contexto.Campanhas.ToListAsync();
+    }
+
+    public async Task<Campanha> BuscaId(int id)
+    {
+        var obj = await contexto.Campanhas.FindAsync(id);
+        if (obj is null) throw new Exception("Campanha não encontrada.");
+        return obj;
     }
 
     public async Task IncluirAsync(Campanha campanha)
