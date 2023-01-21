@@ -7,7 +7,6 @@ namespace api.Controllers;
 
 [Route("campanhas")]
 [ApiController]
-[AllowAnonymous]
 
 public class CampanhasController : ControllerBase
 {

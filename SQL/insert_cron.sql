@@ -63,3 +63,5 @@ VALUES ("Jasmine", "123456", "jasmine@email.com", "adm");
 
 INSERT INTO cadastros(nome,senha,email, permissao) 
 VALUES ("Gustavo", "789456", "gustavo@email.com", "editor");
+
+select * from cadastros
