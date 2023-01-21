@@ -23,7 +23,6 @@ CREATE TABLE IF NOT EXISTS `api_radar`.`Produtos` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-
 CREATE TABLE IF NOT EXISTS `api_radar`.`Clientes` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
