@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Radar_Api.DTO;
 using Radar_Api.Interfaces;
 using Radar_Api.Models;
 
@@ -12,7 +13,6 @@ public class VerificaTokenController : ControllerBase
     [HttpGet("")]
     public async Task<IActionResult> Index()
     {
-        return StatusCode(200);
+        return StatusCode(200, "logado");
     }
 }
-       
