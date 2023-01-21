@@ -47,7 +47,7 @@ public class PedidosProdutosController : ControllerBase
                 pedidosProdutosDoPedido.Add(pedidoProdutoBD);
             }
         }
-        if (pedidosProdutosDoPedido == null) return NotFound();
+        if (pedidosProdutosDoPedido.Count == 0) return NotFound();
         return StatusCode(200, pedidosProdutosDoPedido);
     }
 
