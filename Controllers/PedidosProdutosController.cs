@@ -33,6 +33,24 @@ public class PedidosProdutosController : ControllerBase
 
         return StatusCode(200, pedidoProduto);
     }
+    
+    [HttpGet("/pedidosProdutos/pedidoId/{id}")]
+    [Authorize(Roles = "adm,editor")]
+    public async Task<IActionResult> DetailsIdPedido([FromRoute] int id)
+    {
+        var pedidosProdutosDoPedido = new List<PedidoProduto>();
+        List<PedidoProduto> todosPedidosProduto = await _servico.TodosAsync();
+        for(int i = 0; i<todosPedidosProduto.Count; i++)
+        {
+            var pedidoProdutoBD = todosPedidosProduto[i];
+            if (pedidoProdutoBD.Pedido_Id.ToString() == id.ToString())
+            {
+                pedidosProdutosDoPedido.Add(pedidoProdutoBD);
+            }
+        }
+        if (pedidosProdutosDoPedido == null) return NotFound();
+        return StatusCode(200, pedidosProdutosDoPedido);
+    }
 
     [HttpPost("")]
     [Authorize(Roles = "adm,editor")]
