@@ -16,7 +16,7 @@ public class LoginController : ControllerBase
     {
         _servico = servico;
     }
-    // GET: Clientes
+    
     [HttpPost("/login")]
     [AllowAnonymous]
     public async Task<IActionResult> Login([FromBody] CadastroDTO cadastroDTO)
