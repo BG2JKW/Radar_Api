@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Radar_Api.Autenticacao;
+using Radar_Api.DTO;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,9 @@ builder.Services.AddScoped<IServico<PedidoProduto>, PedidoProdutoRepository>();
 builder.Services.AddScoped<IServico<PosicaoProduto>, PosicaoProdutoRepository>();
 builder.Services.AddScoped<IServico<Campanha>, CampanhaRepository>();
 builder.Services.AddScoped<IServicoCadastro<Cadastro>, CadastroRepository>();
+builder.Services.AddScoped<IServico<ClienteEstado>, ClienteEstadoRepository>();
+builder.Services.AddScoped<IServico<PedidoEstado>, PedidoEstadoRepository>();
+builder.Services.AddScoped<IServico<ProdutoInfo>, ProdutoInfoRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
