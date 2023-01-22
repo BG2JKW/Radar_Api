@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jaziel\\source\\repos\\Radar_Api\\Radar_Api.csproj": {}
+    "D:\\Radar_Api\\Radar_Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jaziel\\source\\repos\\Radar_Api\\Radar_Api.csproj": {
+    "D:\\Radar_Api\\Radar_Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jaziel\\source\\repos\\Radar_Api\\Radar_Api.csproj",
+        "projectUniqueName": "D:\\Radar_Api\\Radar_Api.csproj",
         "projectName": "Radar_Api",
-        "projectPath": "C:\\Users\\Jaziel\\source\\repos\\Radar_Api\\Radar_Api.csproj",
-        "packagesPath": "C:\\Users\\Jaziel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jaziel\\source\\repos\\Radar_Api\\obj\\",
+        "projectPath": "D:\\Radar_Api\\Radar_Api.csproj",
+        "packagesPath": "C:\\Users\\walla\\.nuget\\packages\\",
+        "outputPath": "D:\\Radar_Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Jaziel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\walla\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,7 +25,7 @@
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -66,7 +66,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
@@ -88,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
