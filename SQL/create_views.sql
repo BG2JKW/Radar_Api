@@ -3,7 +3,7 @@
 -- --------------------
 CREATE OR REPLACE VIEW v_pedidos_estados AS
 	SELECT cli.estado, 
-		   format(sum(ped.valor_total), 2) as valor_total_faturado, 
+		   sum(ped.valor_total) as valor_total_faturado, 
 		   count(ped.id) as qtd_pedidos
 		FROM pedidos as ped
 		inner join clientes as cli on ped.Cliente_id = cli.id
@@ -15,7 +15,7 @@ CREATE OR REPLACE VIEW v_pedidos_estados AS
 CREATE OR REPLACE VIEW v_produtos_info AS
 	SELECT pro.nome, 
 		   sum(pp.quantidade) as qtd_total_vendida,
-		   FORMAT(pp.valor*sum(pp.quantidade), 2) as faturamento_total,
+		   pp.valor*sum(pp.quantidade) as faturamento_total,
 		   pro.qtd_estoque
 		FROM pedidosprodutos as pp
 		INNER JOIN produtos as pro ON pp.Produto_id = pro.id
