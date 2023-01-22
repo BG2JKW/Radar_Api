@@ -20,7 +20,7 @@ public class ClientesEstadosController : ControllerBase
     [Authorize(Roles = "adm,editor")]
     public async Task<IActionResult> Index()
     {
-        var clientesEstados = await _servico.TodosAsync();
-        return StatusCode(200, clientesEstados);
+        var estadosClientes = await _servico.TodosAsync();
+        return StatusCode(200, estadosClientes);
     }
 }

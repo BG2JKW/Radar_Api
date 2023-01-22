@@ -3,7 +3,7 @@
 -- --------------------
 CREATE OR REPLACE VIEW v_pedidos_estados AS
 	SELECT cli.estado, 
-		   ped.valor_total as valor_total_faturado, 
+		   format(sum(ped.valor_total), 2) as valor_total_faturado, 
 		   count(ped.id) as qtd_pedidos
 		FROM pedidos as ped
 		inner join clientes as cli on ped.Cliente_id = cli.id

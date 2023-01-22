@@ -72,6 +72,11 @@ VALUES (32.96, "2023-01-21", 2);
 INSERT INTO pedidosprodutos(valor, quantidade, Produto_id, Pedido_id)
 VALUES (32.96, 1, 10, 2);
 
+INSERT INTO pedidos(valor_total, data, Cliente_id)
+VALUES (32.96, "2023-01-21", 1);
+INSERT INTO pedidosprodutos(valor, quantidade, Produto_id, Pedido_id)
+VALUES (32.96, 1, 10, 3);
+
 -- ----------------------------
 -- Cadastro
 -- -----------------------------
