@@ -18,5 +18,3 @@ public record Loja
     public float Latitude {get; set;} = default!;
     public float Longitude {get; set;} = default!;
 }
-
-

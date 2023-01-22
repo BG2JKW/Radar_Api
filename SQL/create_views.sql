@@ -15,7 +15,7 @@ CREATE OR REPLACE VIEW v_pedidos_estados AS
 CREATE OR REPLACE VIEW v_produtos_info AS
 	SELECT pro.nome, 
 		   sum(pp.quantidade) as qtd_total_vendida,
-		   pp.valor*sum(pp.quantidade) as faturamento_total,
+		   pp.valor as faturamento_total,
 		   pro.qtd_estoque
 		FROM pedidosprodutos as pp
 		INNER JOIN produtos as pro ON pp.Produto_id = pro.id

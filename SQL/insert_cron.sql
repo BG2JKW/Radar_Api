@@ -61,9 +61,9 @@ Uma potente combinação de analgésico e relaxante muscular disponível em vers
 INSERT INTO pedidos(valor_total, data, Cliente_id)
 VALUES (164.21, "2023-01-20", 1);
 INSERT INTO pedidosprodutos(valor, quantidade, Produto_id, Pedido_id)
-VALUES (32.96, 2, 10, 1);
+VALUES (65.92, 2, 10, 1);
 INSERT INTO pedidosprodutos(valor, quantidade, Produto_id, Pedido_id)
-VALUES (37.90, 2, 9, 1);
+VALUES (75.80, 2, 9, 1);
 INSERT INTO pedidosprodutos(valor, quantidade, Produto_id, Pedido_id)
 VALUES (22.49, 1, 8, 1);
 
@@ -90,7 +90,7 @@ VALUES ("Gustavo", "789456", "gustavo@email.com", "editor");
 -- Lojas
 -- -----------------------------
 INSERT INTO lojas(nome, cep, logradouro, numero, bairro, cidade, estado, latitude, longitude)
-VALUES ("Farmarcas", "01311-000", "Av. Paulista", "2300", "Consolação", "São Paulo", "São Paulo", -23.5566584, -46.6612175);
+VALUES ("Farmarcas", "01311-000", "Avenida Paulista", "2300", "Bela Vista", "São Paulo", "SP", -23.5566584, -46.6612175);
 
 INSERT INTO lojas(nome, cep, logradouro, numero, bairro, cidade, estado, latitude, longitude)
-VALUES ("Itaim Bibi Loja", "01406-100", "Avenida Nove de Julho", "2300", "Jardim Paulista", "São Paulo", "São Paulo", -23.5837524, -46.6780758);
+VALUES ("Itaim Bibi Loja", "01406-100", "Avenida Nove de Julho", "2300", "Jardim Paulista", "São Paulo", "SP", -23.5837524, -46.6780758);
