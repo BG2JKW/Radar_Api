@@ -13,13 +13,11 @@ CREATE OR REPLACE VIEW v_pedidos_estados AS
 -- MODELO INFO PRODUTOS
 -- --------------------
 CREATE OR REPLACE VIEW v_produtos_info AS
-	SELECT pro.nome, 
-		   sum(pp.quantidade) as qtd_total_vendida,
-		   pp.valor*sum(pp.quantidade) as faturamento_total,
-		   pro.qtd_estoque
-		FROM pedidosprodutos as pp
-		INNER JOIN produtos as pro ON pp.Produto_id = pro.id
-	group by pp.Produto_id;
+	SELECT pro.nome,
+	sum(pp.quantidade) as qtd_total_vendida,
+	pp.valor as faturamento_total,
+	pro.qtd_estoque FROM pedidosprodutos as pp 
+	INNER JOIN produtos as pro ON pp.produto_id = pro.id group by pp.produto_id;
 
 -- --------------------
 -- MODELO CLIENTES POR ESTADO
