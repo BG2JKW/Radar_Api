@@ -18,10 +18,12 @@ public class PedidosProdutosController : ControllerBase
 
     [HttpGet("")]
     [Authorize(Roles = "adm,editor")]
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(
+        [FromQuery] int skip = 0,
+        [FromQuery] int take = 10)
     {
         var pedidosProdutos = await _servico.TodosAsync();
-        return StatusCode(200, pedidosProdutos);
+        return StatusCode(200, pedidosProdutos.Skip(skip).Take(take));
     }
     
     [HttpGet("{id}")]
@@ -47,7 +49,7 @@ public class PedidosProdutosController : ControllerBase
                 pedidosProdutosDoPedido.Add(pedidoProdutoBD);
             }
         }
-        if (pedidosProdutosDoPedido == null) return NotFound();
+        if (pedidosProdutosDoPedido.Count == 0) return NotFound();
         return StatusCode(200, pedidosProdutosDoPedido);
     }
 
