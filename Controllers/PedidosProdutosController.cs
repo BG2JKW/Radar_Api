@@ -18,10 +18,12 @@ public class PedidosProdutosController : ControllerBase
 
     [HttpGet("")]
     [Authorize(Roles = "adm,editor")]
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(
+        [FromQuery] int skip = 0,
+        [FromQuery] int take = 10)
     {
         var pedidosProdutos = await _servico.TodosAsync();
-        return StatusCode(200, pedidosProdutos);
+        return StatusCode(200, pedidosProdutos.Skip(skip).Take(take));
     }
     
     [HttpGet("{id}")]
@@ -31,6 +33,24 @@ public class PedidosProdutosController : ControllerBase
         var pedidoProduto = (await _servico.TodosAsync()).Find(c => c.Id == id);
 
         return StatusCode(200, pedidoProduto);
+    }
+    
+    [HttpGet("/pedidosProdutos/pedidoId/{id}")]
+    [Authorize(Roles = "adm,editor")]
+    public async Task<IActionResult> DetailsIdPedido([FromRoute] int id)
+    {
+        var pedidosProdutosDoPedido = new List<PedidoProduto>();
+        List<PedidoProduto> todosPedidosProduto = await _servico.TodosAsync();
+        for(int i = 0; i<todosPedidosProduto.Count; i++)
+        {
+            var pedidoProdutoBD = todosPedidosProduto[i];
+            if (pedidoProdutoBD.Pedido_Id.ToString() == id.ToString())
+            {
+                pedidosProdutosDoPedido.Add(pedidoProdutoBD);
+            }
+        }
+        if (pedidosProdutosDoPedido.Count == 0) return NotFound();
+        return StatusCode(200, pedidosProdutosDoPedido);
     }
 
     [HttpPost("")]

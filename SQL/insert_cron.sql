@@ -56,6 +56,28 @@ VALUES ("DORFLEX DIPIRONA SÓDICA 300MG + CITRATO DE ORFENADRINA 35MG + CAFEÍNA
 Uma potente combinação de analgésico e relaxante muscular disponível em versões de 10, 24, 36, 50 comprimidos e gotas.", 32.96, 494);
 
 -- ----------------------------
+-- Pedidos e PedidosProdutos
+-- -----------------------------
+INSERT INTO pedidos(valor_total, data, Cliente_id)
+VALUES (164.21, "2023-01-20", 1);
+INSERT INTO pedidosprodutos(valor, quantidade, Produto_id, Pedido_id)
+VALUES (65.92, 2, 10, 1);
+INSERT INTO pedidosprodutos(valor, quantidade, Produto_id, Pedido_id)
+VALUES (75.80, 2, 9, 1);
+INSERT INTO pedidosprodutos(valor, quantidade, Produto_id, Pedido_id)
+VALUES (22.49, 1, 8, 1);
+
+INSERT INTO pedidos(valor_total, data, Cliente_id)
+VALUES (32.96, "2023-01-21", 2);
+INSERT INTO pedidosprodutos(valor, quantidade, Produto_id, Pedido_id)
+VALUES (32.96, 1, 10, 2);
+
+INSERT INTO pedidos(valor_total, data, Cliente_id)
+VALUES (32.96, "2023-01-21", 1);
+INSERT INTO pedidosprodutos(valor, quantidade, Produto_id, Pedido_id)
+VALUES (32.96, 1, 10, 3);
+
+-- ----------------------------
 -- Cadastro
 -- -----------------------------
 INSERT INTO cadastros(nome,senha,email, permissao) 
@@ -64,4 +86,11 @@ VALUES ("Jasmine", "123456", "jasmine@email.com", "adm");
 INSERT INTO cadastros(nome,senha,email, permissao) 
 VALUES ("Gustavo", "789456", "gustavo@email.com", "editor");
 
-select * from cadastros
+-- ----------------------------
+-- Lojas
+-- -----------------------------
+INSERT INTO lojas(nome, cep, logradouro, numero, bairro, cidade, estado, latitude, longitude)
+VALUES ("Farmarcas", "01311-000", "Avenida Paulista", "2300", "Bela Vista", "São Paulo", "SP", -23.5566584, -46.6612175);
+
+INSERT INTO lojas(nome, cep, logradouro, numero, bairro, cidade, estado, latitude, longitude)
+VALUES ("Itaim Bibi Loja", "01406-100", "Avenida Nove de Julho", "2300", "Jardim Paulista", "São Paulo", "SP", -23.5837524, -46.6780758);

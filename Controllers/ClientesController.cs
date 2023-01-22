@@ -17,10 +17,12 @@ public class ClientesController : ControllerBase
 
     [HttpGet("")]
     [Authorize(Roles = "adm,editor")]
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(
+        [FromQuery] int skip = 0,
+        [FromQuery] int take = 10)
     {
         var clientes = await _servico.TodosAsync();
-        return StatusCode(200, clientes);
+        return StatusCode(200, clientes.Skip(skip).Take(take));
     }
 
     [HttpGet("{id}")]

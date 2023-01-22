@@ -6,17 +6,15 @@ namespace Radar_Api.Models;
 public record Loja
 {
     public int Id {get; set;} = default!;
-    public string? Nome {get; set;} 
+    public string Nome {get; set;} = default!;
     public string? Observacao {get; set;} 
-    public string? Cep {get; set;} 
-    public string? Logradouro {get; set;} 
-    public string? Numero {get; set;} 
-    public string? Bairro {get; set;} 
-    public string? Cidade {get; set;} 
-    public string? Estado {get; set;} 
+    public string Cep {get; set;} = default!;
+    public string Logradouro {get; set;} = default!;
+    public string Numero {get; set;} = default!;
+    public string Bairro {get; set;} = default!;
+    public string Cidade {get; set;} = default!;
+    public string Estado {get; set;} = default!;
     public string? Complemento {get; set;} 
-    public float Latitude {get; set;} 
-    public float Longitude {get; set;} 
+    public float Latitude {get; set;} = default!;
+    public float Longitude {get; set;} = default!;
 }
-
-

@@ -18,10 +18,12 @@ public class ProdutosController : ControllerBase
 
     [HttpGet("")]
     [Authorize(Roles = "adm,editor")]
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(
+        [FromQuery] int skip = 0,
+        [FromQuery] int take = 10)
     {
         var produtos = await _servico.TodosAsync();
-        return StatusCode(200, produtos);
+        return StatusCode(200, produtos.Skip(skip).Take(take));
     }
 
     [HttpGet("{id}")]
@@ -29,7 +31,7 @@ public class ProdutosController : ControllerBase
     public async Task<IActionResult> Details([FromRoute] int id)
     {
         var produto = (await _servico.TodosAsync()).Find(c => c.Id == id);
-
+        if (produto == null) return StatusCode(404, "Produto Não Encontrado");
         return StatusCode(200, produto);
     }
 
