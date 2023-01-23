@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "D:\\GitHub\\CDF_PROJ_2\\Radar_Api\\Radar_Api.csproj": {}
   },
   "projects": {
@@ -20,13 +21,32 @@
           "C:\\Users\\Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+    "C:\\Users\\usuario\\Desktop\\Programas Miotto\\Radar_Api\\Radar_Api.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\usuario\\Desktop\\Programas Miotto\\Radar_Api\\Radar_Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\usuario\\Desktop\\Programas Miotto\\Radar_Api\\Radar_Api.csproj",
+        "projectName": "Radar_Api",
+        "projectPath": "C:\\Users\\usuario\\Desktop\\Programas Miotto\\Radar_Api\\Radar_Api.csproj",
+        "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\usuario\\Desktop\\Programas Miotto\\Radar_Api\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> 03cb815bd933d764244d7e37838d7de6c4a06a31
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+<<<<<<< HEAD
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
+=======
+>>>>>>> 03cb815bd933d764244d7e37838d7de6c4a06a31
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
