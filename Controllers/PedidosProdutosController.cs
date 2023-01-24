@@ -18,9 +18,7 @@ public class PedidosProdutosController : ControllerBase
 
     [HttpGet("")]
     [Authorize(Roles = "adm,editor")]
-    public async Task<IActionResult> Index(
-        [FromQuery] int skip = 0,
-        [FromQuery] int take = 10)
+    public async Task<IActionResult> Index()
     {
         var pedidosProdutos = await _servico.TodosAsync();
         return StatusCode(200, pedidosProdutos.Skip(skip).Take(take));
