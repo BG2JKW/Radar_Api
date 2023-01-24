@@ -2497,17 +2497,12 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\Gustavo\\.nuget\\packages\\": {},
     "D:\\VSCode\\Shared\\NuGetPackages": {}
-=======
-    "C:\\Users\\usuario\\.nuget\\packages\\": {}
->>>>>>> 03cb815bd933d764244d7e37838d7de6c4a06a31
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "D:\\GitHub\\CDF_PROJ_2\\Radar_Api\\Radar_Api.csproj",
       "projectName": "Radar_Api",
       "projectPath": "D:\\GitHub\\CDF_PROJ_2\\Radar_Api\\Radar_Api.csproj",
@@ -2521,26 +2516,13 @@
         "C:\\Users\\Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-=======
-      "projectUniqueName": "C:\\Users\\usuario\\Desktop\\Programas Miotto\\Radar_Api\\Radar_Api.csproj",
-      "projectName": "Radar_Api",
-      "projectPath": "C:\\Users\\usuario\\Desktop\\Programas Miotto\\Radar_Api\\Radar_Api.csproj",
-      "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\usuario\\Desktop\\Programas Miotto\\Radar_Api\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> 03cb815bd933d764244d7e37838d7de6c4a06a31
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-<<<<<<< HEAD
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-=======
->>>>>>> 03cb815bd933d764244d7e37838d7de6c4a06a31
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2606,5 +2588,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema ao ler o arquivo de cache D:\\GitHub\\CDF_PROJ_2\\Radar_Api\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
