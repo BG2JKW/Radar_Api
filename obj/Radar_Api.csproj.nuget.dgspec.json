@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\Jaziel\\source\\repos\\Radar_Api\\Radar_Api.csproj": {}
   },
   "projects": {
@@ -18,6 +19,25 @@
         ],
         "configFilePaths": [
           "C:\\Users\\Jaziel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+    "D:\\GitHub\\CDF_PROJ_2\\Radar_Api\\Radar_Api.csproj": {}
+  },
+  "projects": {
+    "D:\\GitHub\\CDF_PROJ_2\\Radar_Api\\Radar_Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\GitHub\\CDF_PROJ_2\\Radar_Api\\Radar_Api.csproj",
+        "projectName": "Radar_Api",
+        "projectPath": "D:\\GitHub\\CDF_PROJ_2\\Radar_Api\\Radar_Api.csproj",
+        "packagesPath": "C:\\Users\\Gustavo\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\CDF_PROJ_2\\Radar_Api\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\VSCode\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 9bf4f77e5fd9f96bbdb4d94cb93245e7c2d29bd1
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +46,10 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+<<<<<<< HEAD
+=======
+          "C:\\Program Files\\dotnet\\library-packs": {},
+>>>>>>> 9bf4f77e5fd9f96bbdb4d94cb93245e7c2d29bd1
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
