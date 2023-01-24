@@ -22,7 +22,7 @@ public class CampanhasController : ControllerBase
     public async Task<IActionResult> Index()
     {
         var campanhas = await _servico.TodosAsync();
-        return StatusCode(200, campanhas.Skip(skip).Take(take));
+        return StatusCode(200, campanhas);
     }
 
     [HttpGet("{id}")]
