@@ -20,7 +20,7 @@ public class ClientesController : ControllerBase
     public async Task<IActionResult> Index()
     {
         var clientes = await _servico.TodosAsync();
-        return StatusCode(200, clientes.Skip(skip).Take(take));
+        return StatusCode(200, clientes);
     }
 
     [HttpGet("{id}")]

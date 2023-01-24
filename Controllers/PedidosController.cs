@@ -21,7 +21,7 @@ public class PedidosController : ControllerBase
     public async Task<IActionResult> Index()
     {
         var pedidos = await _servico.TodosAsync();
-        return StatusCode(200, pedidos.Skip(skip).Take(take));
+        return StatusCode(200, pedidos);
     }
 
     [HttpGet("{id}")]

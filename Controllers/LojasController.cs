@@ -20,7 +20,7 @@ public class LojasController : ControllerBase
     public async Task<IActionResult> Index()
     {
         var lojas = await _servico.TodosAsync();
-        return StatusCode(200, lojas.Skip(skip).Take(take));
+        return StatusCode(200, lojas);
     }
 
     [HttpGet("{id}")]

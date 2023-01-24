@@ -10,7 +10,7 @@ namespace Radar_Api.Repositories.Context
         {
             var conexao = Environment.GetEnvironmentVariable("DATABASE_URL_RADAR");
             //if (conexao is null) conexao = "Server=localhost;Database=api_radar;Uid=root;Pwd=root;";
-            if (conexao is null) conexao = "Server=localhost;Database=api_radar;Uid=root;Pwd='';";
+            if (conexao is null) conexao = "Server=localhost;Database=api_radar;Uid=root;Pwd='root';";
             optionsBuilder.UseMySql(conexao, ServerVersion.AutoDetect(conexao));
         }
 
@@ -25,5 +25,6 @@ namespace Radar_Api.Repositories.Context
         public DbSet<ClienteEstado> ClientesEstados { get; set; } = default!;
         public DbSet<PedidoEstado> PedidosEstados { get; set; } = default!;
         public DbSet<ProdutoInfo> ProdutosInfo { get; set; } = default!;
+        public DbSet<PedidoIdPP> PedidosIdPP { get; set; } = default!;
     }
 }
