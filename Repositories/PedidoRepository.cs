@@ -17,7 +17,6 @@ public class PedidoRepository : IServico<Pedido>
     public async Task<List<Pedido>> TodosAsync()
     {
         var pedidos = await contexto.Pedidos
-            .Include(p => p.Cliente)
             .ToListAsync();
         return pedidos;
     }

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Radar_Api.Models;
 using Radar_Api.Interfaces;
 using Microsoft.AspNetCore.Authorization;
+using Radar_Api.DTO;
 
 namespace api.Controllers;
 
