@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Radar_Api.Models;
 
@@ -12,8 +13,10 @@ public record PedidoProduto
     public int Produto_Id {get; set;} = default!;
 
     [ForeignKey("Pedido_Id")]
+    [JsonIgnore]
     public virtual Pedido? Pedido { get; set; }
     [ForeignKey("Produto_Id")]
+    [JsonIgnore]
     public virtual Produto? Produto { get; set; }
     
 }

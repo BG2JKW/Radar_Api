@@ -17,7 +17,6 @@ public class PosicaoProdutoRepository : IServico<PosicaoProduto>
     public async Task<List<PosicaoProduto>> TodosAsync()
     {
         var posicoesProdutos = await contexto.PosicoesProdutos
-            .Include(pp => pp.Campanha)
             .ToListAsync();
         if (posicoesProdutos is null) throw new Exception("Posicao do produto não encontrada.");
         return posicoesProdutos;
@@ -26,7 +25,6 @@ public class PosicaoProdutoRepository : IServico<PosicaoProduto>
     public async Task<PosicaoProduto> BuscaId(int id)
     {
         var posicoesProdutos = await contexto.PosicoesProdutos
-            .Include(pc => pc.Campanha)
             .FirstOrDefaultAsync(pc => pc.Id == id);
         return posicoesProdutos;
     }
