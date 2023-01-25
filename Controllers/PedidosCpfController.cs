@@ -10,9 +10,10 @@ namespace Radar_Api.Controllers;
 [ApiController]
 public class PedidosCpfController : ControllerBase
 {
-    private IServico<PedidoCPF> _servico;
+    private IServico<PedidoCpf> _servico;
 
-    public PedidosCpfController(IServico<PedidoCPF> servico)
+
+    public PedidosCpfController(IServico<PedidoCpf> servico)
     {
         _servico = servico;
     }
@@ -22,6 +23,10 @@ public class PedidosCpfController : ControllerBase
     public async Task<IActionResult> Index()
     {
         var pedidos = await _servico.TodosAsync();
-        return StatusCode(200, pedidos);
+        if (pedidos == null)
+        {
+            return NotFound();
+        }
+        return Ok(pedidos);
     }
 }

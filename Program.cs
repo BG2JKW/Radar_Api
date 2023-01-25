@@ -27,6 +27,7 @@ builder.Services.AddScoped<IServicoCadastro<Cadastro>, CadastroRepository>();
 builder.Services.AddScoped<IServico<ClienteEstado>, ClienteEstadoRepository>();
 builder.Services.AddScoped<IServico<PedidoEstado>, PedidoEstadoRepository>();
 builder.Services.AddScoped<IServico<ProdutoInfo>, ProdutoInfoRepository>();
+builder.Services.AddScoped<IServico<PedidoCpf>, PedidoCPFRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 

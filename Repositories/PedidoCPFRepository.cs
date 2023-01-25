@@ -6,34 +6,34 @@ using Radar_Api.DTO;
 
 namespace Radar_Api.Repositories;
 
-public class PedidoCPFRepository : IServico<PedidoCPF>
+public class PedidoCPFRepository : IServico<PedidoCpf>
 {
     private EntityContext contexto;
     public PedidoCPFRepository()
     {
         contexto = new EntityContext();
     }
-    public async Task<List<PedidoCPF>> TodosAsync()
+    public async Task<List<PedidoCpf>> TodosAsync()
     {
         return await contexto.PedidosCPF.ToListAsync();
     }
 
-    public Task ApagarAsync(PedidoCPF obj)
+    public Task ApagarAsync(PedidoCpf obj)
     {
         throw new NotImplementedException();
     }
 
-    public Task<PedidoCPF> AtualizarAsync(PedidoCPF obj)
+    public Task<PedidoCpf> AtualizarAsync(PedidoCpf obj)
     {
         throw new NotImplementedException();
     }
 
-    public Task<PedidoCPF> BuscaId(int id)
+    public Task<PedidoCpf> BuscaId(int id)
     {
         throw new NotImplementedException();
     }
 
-    public Task IncluirAsync(PedidoCPF obj)
+    public Task IncluirAsync(PedidoCpf obj)
     {
         throw new NotImplementedException();
     }

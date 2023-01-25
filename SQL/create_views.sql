@@ -44,6 +44,6 @@ CREATE OR REPLACE VIEW v_pedido_info AS
 -- --------------------
 CREATE OR REPLACE VIEW v_pedidos_cpf AS
 	SELECT ped.id, ped.valor_total, ped.data, cli.cpf FROM pedidos as ped
-		INNER JOIN clientes as cli ON ped.cliente_id = cli.id;
+		INNER JOIN clientes as cli ON ped.cliente_id = cli.id GROUP BY id;
     
 >>>>>>> 8673e0e9b312f984cd998bdff8b711ce945a0360
