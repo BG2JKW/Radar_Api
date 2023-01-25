@@ -10,9 +10,9 @@ namespace Radar_Api.Controllers;
 [ApiController]
 public class PedidosCpfController : ControllerBase
 {
-    private IServico<Pedido> _servico;
+    private IServico<PedidoCPF> _servico;
 
-    public PedidosCpfController(IServico<Pedido> servico)
+    public PedidosCpfController(IServico<PedidoCPF> servico)
     {
         _servico = servico;
     }
