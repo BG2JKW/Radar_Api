@@ -11,12 +11,6 @@ public record Pedido
     public DateTime Data {get; set;} = default!;
     public int Cliente_Id {get; set;} = default!;
 
-    [ForeignKey("Cliente_Id")]
-    [JsonIgnore]
-    public virtual Cliente? Cliente { get; set; }
-
-    [JsonIgnore]
-    public virtual ICollection<PedidoProduto> PedidosProdutos { get; set; }
 
 }
 

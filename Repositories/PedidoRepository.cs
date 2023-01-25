@@ -16,16 +16,13 @@ public class PedidoRepository : IServico<Pedido>
 
     public async Task<List<Pedido>> TodosAsync()
     {
-        var pedidos = await contexto.Pedidos
-            .ToListAsync();
+        var pedidos = await contexto.Pedidos.ToListAsync();
         return pedidos;
     }
 
     public async Task<Pedido> BuscaId(int id)
     {
-        var pedidos = await contexto.Pedidos
-            .Include(p => p.Cliente)
-            .FirstOrDefaultAsync(p => p.Id == id);
+        var pedidos = await contexto.Pedidos.FirstOrDefaultAsync(p => p.Id == id);
         if (pedidos is null) throw new Exception("Pedido não encontrado.");
         return pedidos;
     }

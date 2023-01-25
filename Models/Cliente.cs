@@ -19,8 +19,6 @@ public record Cliente
     public string Estado {get; set;} = default!;
     public string? Complemento {get; set;}
 
-    [JsonIgnore]
-    public virtual ICollection<Pedido> Pedidos { get; set; }
 }
 
 

@@ -8,11 +8,11 @@ namespace Radar_Api.Controllers;
 
 [Route("info/produtos")]
 [ApiController]
-public class ProdutosInfoController : ControllerBase
+public class PedidoInfoController : ControllerBase
 {
     private IServico<ProdutoInfo> _servico;
 
-    public ProdutosInfoController(IServico<ProdutoInfo> servico)
+    public PedidoInfoController(IServico<ProdutoInfo> servico)
     {
         _servico = servico;
     }
@@ -21,7 +21,7 @@ public class ProdutosInfoController : ControllerBase
     [Authorize(Roles = "adm,editor")]
     public async Task<IActionResult> Index()
     {
-        var produtosInfo = await _servico.TodosAsync();
-        return StatusCode(200, produtosInfo);
+        var produtoInfo = await _servico.TodosAsync();
+        return StatusCode(200, produtoInfo);
     }
 }

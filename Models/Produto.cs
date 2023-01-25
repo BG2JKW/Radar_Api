@@ -11,7 +11,4 @@ public record Produto
     public string? Descricao {get; set;}  
     public float Valor {get; set;} = default!;
     public int Qtd_Estoque {get; set;} = default!;
-
-    [JsonIgnore]
-    public virtual ICollection<PedidoProduto> PedidosProdutos { get; set; }
 }

@@ -5,7 +5,7 @@ namespace Radar_Api.DTO;
 
 [Table("v_pedidos_cpf")]
 [Keyless]
-public record PedidoCPF
+public record PedidoCpf
 {
     public int id { get; set; } = default!;
     public float valor_total { get; set; } = default!;
