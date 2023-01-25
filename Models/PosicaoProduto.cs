@@ -10,4 +10,7 @@ public record PosicaoProduto
     public float posicao_Y {get; set;} = default!;
     public int Produto_id {get; set;} = default!;
     public int Campanha_Id {get; set;} = default!;
+
+    [ForeignKey("Campanha_Id")]
+    public virtual Campanha? Campanha { get; set; }
 }

@@ -21,14 +21,18 @@ public class PedidosController : ControllerBase
     public async Task<IActionResult> Index()
     {
         var pedidos = await _servico.TodosAsync();
-        return StatusCode(200, pedidos);
+        if(pedidos == null)
+        {
+            return NotFound();
+        }
+        return Ok(pedidos);
     }
 
     [HttpGet("{id}")]
     [Authorize(Roles = "adm,editor")]
     public async Task<IActionResult> Details([FromRoute] int id)
     {
-        var pedido = (await _servico.TodosAsync()).Find(c => c.Id == id);
+        var pedido = await _servico.BuscaId(id);
 
         return StatusCode(200, pedido);
     }

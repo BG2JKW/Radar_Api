@@ -16,27 +16,19 @@ public class PedidoRepository : IServico<Pedido>
 
     public async Task<List<Pedido>> TodosAsync()
     {
-        var pedidos = await Task.FromResult
-        (
-            from ped in contexto.Pedidos
-            join cli in contexto.Clientes on ped.Cliente_Id equals cli.Id
-            select new Pedido
-            {
-                Id = ped.Id,
-                Valor_Total = ped.Valor_Total,
-                Data = ped.Data,
-                Cliente_Id = cli.Id,
-            }
-        );
-
-        return await pedidos.ToListAsync();
+        var pedidos = await contexto.Pedidos
+            .Include(p => p.Cliente)
+            .ToListAsync();
+        return pedidos;
     }
 
     public async Task<Pedido> BuscaId(int id)
     {
-        var obj = await contexto.Pedidos.FindAsync(id);
-        if (obj is null) throw new Exception("Pedido não encontrado.");
-        return obj;
+        var pedidos = await contexto.Pedidos
+            .Include(p => p.Cliente)
+            .FirstOrDefaultAsync(p => p.Id == id);
+        if (pedidos is null) throw new Exception("Pedido não encontrado.");
+        return pedidos;
     }
 
     public async Task IncluirAsync(Pedido pedido)

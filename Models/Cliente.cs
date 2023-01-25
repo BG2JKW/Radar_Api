@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Radar_Api.Models;
 
@@ -17,6 +18,9 @@ public record Cliente
     public string Cidade {get; set;} = default!;
     public string Estado {get; set;} = default!;
     public string? Complemento {get; set;}
+
+    [JsonIgnore]
+    public virtual ICollection<Pedido> Pedidos { get; set; }
 }
 
 
