@@ -28,6 +28,7 @@ CREATE OR REPLACE VIEW v_clientes_estados AS
 	SELECT cli.estado, count(*) as qtd_clientes
 		FROM clientes as cli
 	group by cli.estado;
+<<<<<<< HEAD
 
 	-- --------------------
 -- MODELO PEDIDO 
@@ -36,3 +37,13 @@ CREATE OR REPLACE VIEW v_pedido_info AS
 	SELECT ID FROM Pedidos WHERE CLIENTE_ID=1 ORDER BY ID DESC LIMIT 1;
 
 
+=======
+    
+-- --------------------
+-- MODELO PEDIDOS COM CPF
+-- --------------------
+CREATE OR REPLACE VIEW v_pedidos_cpf AS
+	SELECT ped.id, ped.valor_total, ped.data, cli.cpf FROM pedidos ped
+		JOIN clientes cli ON ped.cliente_id = cli.id;
+    
+>>>>>>> 8673e0e9b312f984cd998bdff8b711ce945a0360

@@ -13,6 +13,28 @@ namespace Radar_Api.Repositories.Context
             if (conexao is null) conexao = "Server=localhost;Database=api_radar;Uid=root;Pwd='root';";
             optionsBuilder.UseMySql(conexao, ServerVersion.AutoDetect(conexao));
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Pedido>()
+                .HasOne(p => p.Cliente)
+                .WithMany(c => c.Pedidos)
+                .HasForeignKey(p => p.Cliente_Id);
+
+            modelBuilder.Entity<Pedido>()
+                .HasMany(p => p.PedidosProdutos)
+                .WithOne(pp => pp.Pedido)
+                .HasForeignKey(pp => pp.Pedido_Id);
+
+            modelBuilder.Entity<Produto>()
+                .HasMany(p => p.PedidosProdutos)
+                .WithOne(pp => pp.Produto)
+                .HasForeignKey(pp => pp.Produto_Id);
+
+            modelBuilder.Entity<PosicaoProduto>()
+                .HasOne(pp => pp.Campanha)
+                .WithMany(c => c.PosicoesProdutos)
+                .HasForeignKey(pp => pp.Campanha_Id);
+        }
 
         public DbSet<Loja> Lojas { get; set; } = default!;
         public DbSet<Cliente> Clientes { get; set; } = default!;

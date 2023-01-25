@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Radar_Api.Models;
 
@@ -10,4 +11,8 @@ public record PosicaoProduto
     public float posicao_Y {get; set;} = default!;
     public int Produto_id {get; set;} = default!;
     public int Campanha_Id {get; set;} = default!;
+
+    [ForeignKey("Campanha_Id")]
+    [JsonIgnore]
+    public virtual Campanha? Campanha { get; set; }
 }

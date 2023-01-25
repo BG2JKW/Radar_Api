@@ -10,7 +10,11 @@ public record PedidoProduto
     public int Quantidade {get; set;} = default!;
     public int Pedido_Id {get; set;} = default!;
     public int Produto_Id {get; set;} = default!;
-    
+
+    [ForeignKey("Pedido_Id")]
+    public virtual Pedido? Pedido { get; set; }
+    [ForeignKey("Produto_Id")]
+    public virtual Produto? Produto { get; set; }
     
 }
 
