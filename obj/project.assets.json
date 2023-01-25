@@ -2497,23 +2497,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\walla\\.nuget\\packages\\": {},
+    "C:\\Users\\Jaziel\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Radar_Api\\Radar_Api.csproj",
+      "projectUniqueName": "C:\\Users\\Jaziel\\source\\repos\\Radar_Api\\Radar_Api.csproj",
       "projectName": "Radar_Api",
-      "projectPath": "D:\\Radar_Api\\Radar_Api.csproj",
-      "packagesPath": "C:\\Users\\walla\\.nuget\\packages\\",
-      "outputPath": "D:\\Radar_Api\\obj\\",
+      "projectPath": "C:\\Users\\Jaziel\\source\\repos\\Radar_Api\\Radar_Api.csproj",
+      "packagesPath": "C:\\Users\\Jaziel\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jaziel\\source\\repos\\Radar_Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\walla\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jaziel\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2521,7 +2521,7 @@
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files\\dotnet\\library-packs": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2584,8 +2584,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema ao ler o arquivo de cache C:\\Users\\Jaziel\\source\\repos\\Radar_Api\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

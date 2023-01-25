@@ -11,7 +11,6 @@ public record PedidoProduto
     public int Pedido_Id {get; set;} = default!;
     public int Produto_Id {get; set;} = default!;
     
-    
 }
 
 

@@ -16,29 +16,15 @@ public class PedidoProdutoRepository : IServico<PedidoProduto>
 
     public async Task<List<PedidoProduto>> TodosAsync()
     {
-        var pedidosProdutos = await Task.FromResult
-        (
-            from pedProd in contexto.PedidosProdutos
-            join ped in contexto.Pedidos on pedProd.Pedido_Id equals ped.Id
-            join prod in contexto.Produtos on pedProd.Produto_Id equals prod.Id
-            select new PedidoProduto
-            {
-                Id = pedProd.Id,
-                Valor = pedProd.Valor,
-                Quantidade = pedProd.Quantidade,
-                Pedido_Id = ped.Id,
-                Produto_Id = prod.Id,
-            }
-        );
-
-        return await pedidosProdutos.ToListAsync();
+        var pedidosProdutos = await contexto.PedidosProdutos.ToListAsync();
+        return pedidosProdutos;
     }
 
     public async Task<PedidoProduto> BuscaId(int id)
     {
-        var obj = await contexto.PedidosProdutos.FindAsync(id);
-        if (obj is null) throw new Exception("PedidoProduto não encontrado.");
-        return obj;
+        var pedidosProdutos = await contexto.PedidosProdutos.FirstOrDefaultAsync(pp => pp.Id == id);
+        if (pedidosProdutos is null) throw new Exception("PedidoProduto não encontrado.");
+        return pedidosProdutos;
     }
 
     public async Task IncluirAsync(PedidoProduto pedidoProduto)

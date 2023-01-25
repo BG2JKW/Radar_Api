@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Radar_Api.Models;
 using Radar_Api.Interfaces;
 using Microsoft.AspNetCore.Authorization;
+using Radar_Api.DTO;
 
 namespace api.Controllers;
 
@@ -18,19 +19,21 @@ public class PedidosController : ControllerBase
 
     [HttpGet("")]
     [Authorize(Roles = "adm,editor")]
-    public async Task<IActionResult> Index(
-        [FromQuery] int skip = 0,
-        [FromQuery] int take = 10)
+    public async Task<IActionResult> Index()
     {
         var pedidos = await _servico.TodosAsync();
-        return StatusCode(200, pedidos.Skip(skip).Take(take));
+        if(pedidos == null)
+        {
+            return NotFound();
+        }
+        return Ok(pedidos);
     }
 
     [HttpGet("{id}")]
     [Authorize(Roles = "adm,editor")]
     public async Task<IActionResult> Details([FromRoute] int id)
     {
-        var pedido = (await _servico.TodosAsync()).Find(c => c.Id == id);
+        var pedido = await _servico.BuscaId(id);
 
         return StatusCode(200, pedido);
     }

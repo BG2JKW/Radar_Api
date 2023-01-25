@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Radar_Api.Models;
 
@@ -10,4 +11,7 @@ public record Campanha
     public string Descricao {get; set;} = default!;
     public DateTime Data {get; set;} = default!;
     public string Url_Foto_Prateleira {get; set;} = default!;
+
+    [JsonIgnore]
+    public virtual ICollection<PosicaoProduto> PosicoesProdutos { get; set; }
 }

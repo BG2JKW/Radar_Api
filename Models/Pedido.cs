@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Radar_Api.Models;
 
@@ -9,6 +10,8 @@ public record Pedido
     public float Valor_Total {get; set;} = default!;
     public DateTime Data {get; set;} = default!;
     public int Cliente_Id {get; set;} = default!;
+
+
 }
 
 
@@ -17,4 +20,3 @@ public record Pedido
 
 
 
- 

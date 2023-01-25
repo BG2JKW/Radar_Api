@@ -17,13 +17,10 @@ public class LojasController : ControllerBase
 
     [HttpGet("")]
     [Authorize(Roles = "adm,editor")]
-    
-    public async Task<IActionResult> Index(
-        [FromQuery] int skip = 0,
-        [FromQuery] int take = 10)
+    public async Task<IActionResult> Index()
     {
         var lojas = await _servico.TodosAsync();
-        return StatusCode(200, lojas.Skip(skip).Take(take));
+        return StatusCode(200, lojas);
     }
 
     [HttpGet("{id}")]
@@ -64,7 +61,7 @@ public class LojasController : ControllerBase
     [Authorize(Roles = "adm")]
     public async Task<IActionResult> Delete([FromRoute] int id)
     {
-        var lojaDb = (await _servico.TodosAsync()).Find(l => l.Id == id);
+        var lojaDb = await _servico.BuscaId(id);
         if (lojaDb is null)
         {
             return StatusCode(404, new
